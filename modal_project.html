@@ -5,17 +5,31 @@
 
 	<title>JavaScript Modal Project</title>
 	<style type="text/css">
+		body {
+			background-color: lightyellow;
+		}
 		.modal {
+			background-color: orange;
+			display: none;
+			z-index: 1;
 			position: fixed;
 			top: 50%;
 			left: 50%;
-			border: 1px solid red;
-			background-color: orange;
 			width: 75%;
-			padding: 20px;
+			border: 1px solid red;
+			padding: 0px 20px 20px;
 			transform: translate(-50%, -50%);
-			display: none;
-			z-index: 1;
+		}
+		.open-modal, .close-modal {
+			background-color: darkorange;
+			color: lightyellow;
+			border: 3px solid yellow;
+			display: block;
+			width: 80%;
+			margin: 0px auto;
+			padding: 10px;
+			font-size: 25px;
+			font-weight: bold;
 		}
 	</style>
 
@@ -41,12 +55,10 @@
 
 			open() {
 				this.modal.style.display = "initial";
-				openBtn.disabled = true;
 			}
 
 			close() {
 				this.modal.style.display = "none";
-				openBtn.disabled = false;
 			}
 		}
 
@@ -56,10 +68,14 @@
 
 		openBtn.addEventListener('click', function(event) {
 			modal.open();
+			openBtn.style.backgroundColor = "#eee"
+			openBtn.disabled = true;
 		})
 
 		closeBtn.addEventListener('click', function(event) {
 			modal.close();
+			openBtn.style.backgroundColor = "darkorange"
+			openBtn.disabled = false;
 		})
 
 	</script>
