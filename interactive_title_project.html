@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Interactive Title Project</title>
+
+	<style type="text/css">
+		body {
+			background-color: lightgrey;
+		}
+		
+		h1 {
+			text-align: center;
+			margin: 8px;
+			background-color: white;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			font-weight: bold;
+			font-size: 40px;
+			letter-spacing: 5px;
+			color: rgb(0,0,0,0.3);
+		}
+		.js-letter {
+			margin: 0px 10px;
+		}
+		.active {
+			
+			color: blue;
+			animation-name: example;
+  			animation-duration: 4s;
+		}
+		@keyframes example {
+  			from {color: red;}
+  			to {color: yellow;}
+		}
+	</style>
+
+</head>
+
+<body>
+
+		<h1>JAVASCRIPT</h1>
+	
+
+	<script type="text/javascript">
+
+		const h1 = document.querySelector("h1");
+		const letters = h1.innerText.split('');
+
+		let html = '';
+
+		letters.forEach(letter => {
+			let classes = 'js-letter';
+			html = html + `<span class='${classes}'>${letter}</span>`;
+		})
+
+		h1.innerHTML = html;
+		const jsLetters = document.querySelectorAll(".js-letter");
+		jsLetters.forEach(node => {
+			node.addEventListener("click", function(event) {
+				if(this.classList.contains("active")) {
+					this.classList.remove("active");
+				} else {
+					this.classList.add("active");
+				}
+			})
+		})
+
+	</script>
+
+</body>
+
+</html>
