@@ -8,33 +8,62 @@
 	<title>JavaScript Interactive Title Project</title>
 
 	<style type="text/css">
+
 		body {
 			background-color: lightgrey;
 		}
-		
 		h1 {
+			display: flex;
+			flex-direction: row;
+			width: 90%;
 			text-align: center;
-			margin: 8px;
-			background-color: white;
+			margin: 8px auto;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 			font-weight: bold;
-			font-size: 40px;
+			font-size: 65px;
 			letter-spacing: 5px;
 			color: rgb(0,0,0,0.3);
 		}
 		.js-letter {
-			margin: 0px 10px;
+			flex-grow: 1;
+			margin: 0px 13px;
+			position: relative;
+			cursor: pointer;
 		}
 		.active {
-			
-			color: blue;
-			animation-name: example;
+			animation-name: active;
   			animation-duration: 4s;
+  			animation-fill-mode: forwards;
 		}
-		@keyframes example {
-  			from {color: red;}
-  			to {color: yellow;}
+		@keyframes active {
+  			0% {color: rgb(0,0,0,0.3); top:0px;}
+  			100% {color: rgb(0,0,0,1); top:300px;}
 		}
+		.reset {
+			animation-name: reset;
+  			animation-duration: 4s;
+  			animation-fill-mode: forwards;
+		}
+		@keyframes reset {
+  			0% {color: rgb(0,0,0,1); top:300px;}
+  			100% {color: rgb(0,0,0,0.3); top:0px;}
+		}
+		@media screen and (max-width: 900px) {
+			h1 {
+				width: 30%;
+				flex-direction: column;
+				float: left;
+			}
+			@keyframes active {
+  				0% {color: rgb(0,0,0,0.3); left:0px;}
+  				100% {color: rgb(0,0,0,1); left:300px;}
+			}
+			@keyframes reset {
+  				0% {color: rgb(0,0,0,1); left:300px;}
+  				100% {color: rgb(0,0,0,0.3); left:0px;}
+			}
+		}
+
 	</style>
 
 </head>
@@ -62,8 +91,10 @@
 			node.addEventListener("click", function(event) {
 				if(this.classList.contains("active")) {
 					this.classList.remove("active");
+					this.classList.add("reset");
 				} else {
 					this.classList.add("active");
+					this.classList.remove("reset");
 				}
 			})
 		})
@@ -73,3 +104,7 @@
 </body>
 
 </html>
+
+
+
+<!------------ Copyright © Ali Abedi [September 2020] ------------>
