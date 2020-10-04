@@ -14,10 +14,10 @@
 		}
 		h1 {
 			display: flex;
-			flex-direction: row;
-			width: 90%;
+			flex-direction: column;
+			width: 30%;
 			text-align: center;
-			margin: 8px auto;
+			float: left;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 			font-weight: bold;
 			font-size: 65px;
@@ -36,33 +36,18 @@
   			animation-fill-mode: forwards;
 		}
 		@keyframes active {
-  			0% {color: rgb(0,0,0,0.3); top:0px;}
-  			100% {color: rgb(0,0,0,1); top:300px;}
-		}
+  				0% {color: rgb(0,0,0,0.3); left:0px;}
+  				100% {color: rgb(0,0,0,1); left:200%;}
+			}
 		.reset {
 			animation-name: reset;
   			animation-duration: 3s;
   			animation-fill-mode: forwards;
 		}
 		@keyframes reset {
-  			0% {color: rgb(0,0,0,1); top:300px;}
-  			100% {color: rgb(0,0,0,0.3); top:0px;}
-		}
-		@media screen and (max-width: 900px) {
-			h1 {
-				width: 30%;
-				flex-direction: column;
-				float: left;
+  				0% {color: rgb(0,0,0,1); left:200%;}
+  				100% {color: rgb(0,0,0,0.3); left:0%;}
 			}
-			@keyframes active {
-  				0% {color: rgb(0,0,0,0.3); left:0px;}
-  				100% {color: rgb(0,0,0,1); left:300px;}
-			}
-			@keyframes reset {
-  				0% {color: rgb(0,0,0,1); left:300px;}
-  				100% {color: rgb(0,0,0,0.3); left:0px;}
-			}
-		}
 
 	</style>
 
@@ -70,12 +55,14 @@
 
 <body>
 
-		<h1>JAVASCRIPT</h1>
-	
+		<h1></h1>
+
 
 	<script type="text/javascript">
 
 		const h1 = document.querySelector("h1");
+		input = prompt("Enter Text (such as a name)", "JavaScript");
+		h1.innerHTML = input.toUpperCase();
 		const letters = h1.innerText.split('');
 
 		let html = '';
